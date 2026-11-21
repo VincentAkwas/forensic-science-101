@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Forensic Science 101</title>
+<style>
+:root{--bg:#f5f6f8;--c:#fff;--t:#17202e;--m:#5a6575;--a:#1d4f7a;--b:#dbe0e7;--y:#9a7b2f;--ob:#fff;--hd:#12233d}
+:root.dk{--bg:#0e141d;--c:#161e2b;--t:#e6ebf2;--m:#93a0b3;--a:#6aa6d9;--b:#263243;--y:#d1ad5a;--ob:#0e141d;--hd:#0a1019}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--t)}
+h1,summary,.fc{font-family:Georgia,"Times New Roman",serif}
+.top{background:var(--hd);color:#fff}.w{max-width:780px;margin:auto;padding:22px 16px 0}
+.top h1{margin:0;font-size:1.7rem;letter-spacing:.2px}.top p{margin:4px 0 0;color:#aab7c9;font-size:.9rem}
+nav{display:flex;gap:4px;margin-top:16px}
+nav button{flex:1;padding:11px 6px;background:none;border:0;border-bottom:3px solid transparent;color:#aab7c9;cursor:pointer}
+nav button.on{color:#fff;border-bottom-color:var(--y)}
+main{max-width:780px;margin:auto;padding:20px 16px 48px}
+button,select,input{font:inherit}
+.btn{padding:10px 14px;border:1px solid var(--b);background:var(--c);color:var(--t);border-radius:6px;cursor:pointer}
+.top .btn{background:none;color:#fff;border-color:#3a4d6b}
+.btn:hover{border-color:var(--a)}.btn.p{background:var(--a);color:var(--ob);border-color:var(--a)}
+input[type=text],select{width:100%;padding:10px 12px;border:1px solid var(--b);border-radius:6px;background:var(--c);color:var(--t);margin-bottom:10px}
+details{background:var(--c);border:1px solid var(--b);border-radius:6px;margin-bottom:10px}
+details[open]{border-color:var(--a)}
+summary{padding:13px 14px;cursor:pointer;font-weight:700;display:flex;gap:12px;align-items:center}
+.mn{flex:none;width:26px;height:26px;border-radius:50%;background:var(--a);color:var(--ob);font:600 .85rem system-ui;display:inline-flex;align-items:center;justify-content:center}
+.t{display:flex;gap:10px;padding:12px 14px;border-top:1px solid var(--b)}
+main>.t{border:1px solid var(--b);border-radius:6px;background:var(--c);margin-bottom:8px}
+.t b{font-weight:600}.t p{margin:2px 0 0;color:var(--m);font-size:.93rem}
+.t ul{margin:6px 0;padding-left:18px;font-size:.92rem}
+.t input[type=checkbox]{margin-top:6px;accent-color:var(--a)}
+.t a{display:inline-block;margin:4px 8px 0 0;padding:2px 10px;border:1px solid var(--b);border-radius:12px;color:var(--a);font-size:.8rem;text-decoration:none}
+.t a:hover{border-color:var(--a)}
+.st{align-self:flex-start;background:none;border:1px solid var(--b);border-radius:12px;color:var(--m);font-size:.75rem;padding:2px 10px;cursor:pointer}
+.st.on{color:var(--y);border-color:var(--y)}
+.bar{height:6px;background:var(--b);border-radius:9px;overflow:hidden;margin-bottom:14px}.bar i{display:block;height:100%;background:var(--a)}
+.fc{background:var(--c);border:1px solid var(--b);border-radius:8px;min-height:220px;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;font-size:1.25rem;cursor:pointer;margin:12px 0;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.row{display:flex;gap:8px}.row .btn{flex:1}.m{color:var(--m);font-size:.85rem;margin:6px 0}
+.tod{border-left:3px solid var(--y);padding:8px 14px;margin-bottom:16px;background:var(--c);border-radius:0 6px 6px 0}
+.ok{border-color:#2e9e5b!important;background:rgba(46,158,91,.14)!important}.no{border-color:#c74a5e!important;background:rgba(199,74,94,.14)!important}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+</style></head><body>
+<div class=top><div class=w><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px"><div><h1>Forensic Science 101</h1><p>Study library, glossary, flashcards and quiz, based on Introduction to Forensic Science</p></div><button id=th class=btn style="padding:6px 12px;font-size:.85rem" aria-label="Switch light or dark theme">Theme</button></div><nav><button data-t="lib">Library</button><button data-t="dict">Glossary</button><button data-t="cards">Flashcards</button><button data-t="quiz">Quiz</button></nav></div></div>
+<main id="v"></main>
+<script>
+const N="Notes to be added.";
+const M=[
+["Exploring the World of Forensic Science","",[
+["Basic ideas in forensic science","Science applied to the law: collect, analyse and interpret physical evidence to establish facts."],
+["What is forensic science","Use of scientific methods to answer legal questions in criminal and civil cases."],
+["Application of forensic science","Crime scenes, identifying people and substances, linking suspects to scenes, and clearing the innocent."],
+["Limits of forensic science","Evidence can be contaminated, ambiguous or misread. It shows association, not guilt."],
+["Locard's Exchange Principle","Every contact leaves a trace: the offender and the scene exchange material."],
+["Roberto Calvi Case","Italian banker found hanged under Blackfriars Bridge, London, 1982. Ruled suicide at first, later treated as murder."],
+["Buck Ruxton & Jigsaw murders","1935: Dr Ruxton killed his wife and maid. Dismembered remains were identified using anatomy, entomology and fingerprints."],
+["Forensic labs","Specialist labs (DNA, toxicology, ballistics, trace) that keep chain of custody and quality control."],
+["Reconstruction & re-enactment","Rebuilding events from the evidence to test whether an account is physically possible."],
+["The woodchipper murder case","Helle Crafts vanished in Connecticut in 1986. Traces found in a woodchipper convicted her husband without a body."]]],
+["Chemical Analysis in Forensics","",[
+["Introduction to Atomic Structure","Atoms have protons, neutrons and electrons. Atomic number defines the element; isotopes differ in neutrons."],
+["Elemental Analysis","Finds which elements, and how much, are present, e.g. trace metals in glass, paint or residue."],
+["Analysis of Microscopic Objects","Microscopy compares fibres, hair, glass, pollen and paint at tiny scale."],
+["Napoleon Case","Arsenic found in his hair fuelled poisoning claims. Environmental sources keep the debate open."],
+["JFK Assassination Case","Neutron activation analysis compared bullet fragments. Its conclusions were later criticised."],
+["Adams Case",N],
+["Introduction to Chromatography","Separates a mixture between a mobile and a stationary phase; components travel at different speeds."],
+["GC & HPLC","GC separates vaporised compounds in a gas stream. HPLC separates dissolved compounds using liquid under pressure."],
+["Infrared Spectroscopy","Molecules absorb IR at set frequencies, giving a spectrum that identifies functional groups."],
+["Mass Spectrometry","Ionises molecules and sorts them by mass-to-charge ratio. Often paired with GC (GC-MS)."]]],
+["Time of Death and Blood Evidence","",[
+["Time of death","Estimated from body changes; accuracy falls the longer since death."],
+["Recent Deaths","Algor mortis (cooling), rigor mortis (stiffening) and livor mortis (lividity) date the first day or so."],
+["Decomposing bodies I","Stages: fresh, bloat, active decay, advanced decay, dry. Speed depends on temperature and setting."],
+["Decomposing bodies II (forensic entomology)","Insect species and larval stage, especially blowflies, estimate time since death."],
+["Analysis of Skeletal Remains I","Bones give sex, age, ancestry and height (pelvis, skull, long bones)."],
+["Analysis of Skeletal Remains II","Injury, disease and identification by comparing bones to records and reconstructions."],
+["Ötzi Case","5,300-year-old Iceman found in the Alps in 1991. Arrow wound and tools analysed."],
+["Blood","Plasma plus cells. Blood group and DNA link people to scenes."],
+["Test for blood","Presumptive tests (Kastle-Meyer, luminol) first, then confirmatory tests."],
+["Precipitin Technology","Antiserum reacts with proteins to show whether blood is human or from another species."],
+["Blood Spatter Analysis","Stain shape, size and pattern show impact force, direction and point of origin."],
+["Lord Lucan Case","Lucan vanished in 1974 after nanny Sandra Rivett was killed. Blood evidence found; he was never located."]]],
+["DNA Forensics","",[
+["Introduction of DNA","Double helix of nucleotides (A, T, C, G). Humans are about 99.9% identical; the differences identify individuals."],
+["Techniques used in DNA Profiling","Early RFLP, then PCR plus STR analysis separated by capillary electrophoresis."],
+["Polymerase Chain Reaction","Copies a tiny DNA sample millions of times using heating and cooling cycles."],
+["Short Tandem Repeats (STR)","Short sequences repeated a variable number of times. Matching many STR loci gives a profile."],
+["Colin Pitchfork Case","First murder conviction using DNA profiling (UK, 1980s). It also cleared an innocent suspect."],
+["Cold Case I",N],["Cold Case II",N],
+["Early Uses of DNA profiling","Alec Jeffreys developed it in 1984; first used in immigration and paternity disputes."],
+["Mitochondrial DNA","Inherited from the mother. Useful for degraded samples, hair and old bones."],
+["DNA Profiling of other Species","Animal and plant DNA, such as pet hair, can link a suspect to a scene."],
+["Peter Falconio & Joanne Lees","2001 Australian Outback: Falconio disappeared. DNA on Lees's clothing and handcuffs helped convict Bradley Murdoch."],
+["The Ang Mo Kio Case",N]]],
+["Fingerprinting, Polymers & Fibres, Firearms","",[
+["History of fingerprinting","Used in ancient times; modern science from Faulds, Galton and Henry in the 1800s."],
+["Principles of fingerprinting","Prints are unique and permanent. Main patterns: loops, whorls, arches."],
+["Visualising fingerprints","Powder, cyanoacrylate fuming, ninhydrin and dyes reveal latent prints."],
+["Brandon Mayfield Case","FBI wrongly matched his print to the 2004 Madrid bombings. A lesson in human error."],
+["Introduction to Polymers & fibres","Polymers are long-chain molecules. Fibres are compared by type, colour and structure."],
+["Natural Polymers","Cotton, wool, silk, cellulose and proteins."],
+["Hair","Cuticle, cortex and medulla under the microscope; root cells give DNA."],
+["Wayne Williams Case","Atlanta child murders (1979-81). Carpet fibres and dog hairs linked him to victims."],
+["Sarah Payne Case","2000 UK abduction and murder. Roy Whiting was convicted using fibre and hair evidence."],
+["Internal Ballistics","What happens inside the gun on firing; barrel rifling leaves marks on the bullet."],
+["Gunshot residue","Particles with lead, barium and antimony from the primer, found on hands or clothes (SEM-EDX)."]]],
+["Narcotics","",[
+["Narcotics","Drugs that act on the nervous system and are legally controlled."],
+["Types of illegal drugs","Stimulants, depressants, opioids, hallucinogens and cannabinoids."],
+["Cocaine","Stimulant from coca leaves, sold as powder or crack."],
+["Opium, morphine & heroin","Opium comes from poppy latex; morphine is its main alkaloid; heroin is diacetylmorphine."],
+["Synthetic drugs","Made in labs, e.g. amphetamines, methamphetamine and ecstasy."],
+["Analogs","Slightly altered versions of controlled drugs, made to dodge the law."],
+["Detection and identification of drugs","Colour tests, TLC, IR and GC-MS."],
+["Ruritania Case Study",N],["Ruritanian Case Study: The Sturgkh Assassination",N]]],
+["Toxicology","",[
+["Introduction to Toxicology","The study of harmful effects of chemicals. The dose makes the poison."],
+["Deliberate & accidental poisoning","Poisonings may be criminal, suicidal, medical errors or accidents; context helps tell which."],
+["Toxins & biological poisons","Poisons made by living things, e.g. ricin and snake venom."],
+["LD50","Dose that kills 50% of a test population. Lower LD50 means more toxic."],
+["Forensic toxicology","Detects and measures drugs and poisons in blood, urine and tissue."],
+["Alcohols","Ethanol is measured as blood alcohol content. Methanol is far more toxic."],
+["Inorganic Poisons - Arsenic","Classic poison; stays in hair and nails. Detected by the Marsh test."],
+["Inorganic Poisons - Thallium","Tasteless, odourless metal; causes hair loss and nerve damage."],
+["Inorganic Poisons - Barium","Soluble barium salts are toxic, mainly affecting heart and muscles."],
+["Nerve Agents","Block acetylcholinesterase (e.g. sarin, VX), causing nerve overstimulation."],
+["Georgi Markov Case","1978 London: Bulgarian dissident killed by a ricin pellet fired from an umbrella."],
+["Alexander Litvinenko Case","2006 London: former Russian agent died of polonium-210 poisoning."]]],
+["Case Studies","",[
+["King Richard III Case","Skeleton found under a Leicester car park (2012). Identified by DNA, spinal curvature and battle wounds."],
+["Annie Le Case","Yale student killed in 2009. Trace evidence and DNA led to her colleague's conviction."],
+["June Devaney Case","1948 Blackburn: mass fingerprinting of the town's residents identified Peter Griffiths."],
+["Jon Benet Ramsey Case","1996 Colorado child murder. Scene handling problems left it unsolved."],
+["The Unabomber Case; Psychological Profiling","Ted Kaczynski was caught after his manifesto's writing style was recognised. Profiling infers traits from behaviour."],
+["The Soham Murders Case","2002: Holly Wells and Jessica Chapman. Ian Huntley was convicted using fibres, DNA and phone data."],
+["Dr. Crippen Case","1910 London: remains identified by a scar and hyoscine found; arrested via ship's wireless."]]]];
+const D=[
+["Chain of custody","Documented record of who handled evidence, so it stays admissible."],
+["Locard's Exchange Principle","Every contact leaves a trace between offender and scene."],
+["Trace evidence","Tiny transferred materials such as fibres, hair, glass or paint."],
+["Latent print","Invisible fingerprint that needs development to be seen."],
+["Presumptive test","Quick screening test that suggests a substance; must be confirmed."],
+["Confirmatory test","Specific test that proves what a substance is."],
+["Algor mortis","Cooling of the body after death."],
+["Rigor mortis","Stiffening of muscles after death."],
+["Livor mortis","Purple skin colour from blood settling after death."],
+["Forensic entomology","Using insects to estimate time since death."],
+["Isotope","Atoms of the same element with different numbers of neutrons."],
+["Chromatography","Separating a mixture by differing movement through a stationary phase."],
+["Spectroscopy","Identifying substances by how they interact with light or radiation."],
+["Mass spectrometry","Sorting ions by mass-to-charge ratio to identify molecules."],
+["Luminol","Chemical that glows blue with traces of blood."],
+["Precipitin test","Shows whether blood proteins are human or animal."],
+["PCR","Polymerase chain reaction: copies DNA many millions of times."],
+["STR","Short tandem repeat: variable repeated DNA sequence used in profiling."],
+["Electrophoresis","Separating DNA fragments by size using an electric field."],
+["Mitochondrial DNA","DNA passed down the maternal line, good for degraded samples."],
+["Polymer","Large molecule built from repeating units."],
+["Rifling","Spiral grooves in a barrel that spin the bullet and leave marks."],
+["Gunshot residue","Particles expelled on firing, e.g. lead, barium, antimony."],
+["Narcotic","Controlled drug affecting the nervous system."],
+["Toxicology","The study of poisons and their effects."],
+["LD50","Lethal dose for 50% of a test population."],
+["Nerve agent","Chemical weapon that disrupts nerve signalling."],
+["Psychological profiling","Inferring an offender's likely traits from crime behaviour."],
+["Cold case","Unsolved case reopened, often with new technology."]];
+const P={
+"Basic ideas in forensic science":["Evidence is collected, preserved, analysed, then interpreted and presented in court","Aims: identify, link evidence to a source, and reconstruct events","Two pillars: transfer of material (Locard) and a documented chain of custody"],
+"What is forensic science":["'Forensic' means 'for the courts' (Latin forum)","Draws on chemistry, biology, physics, medicine and more","Serves both criminal and civil cases"],
+"Application of forensic science":["Scene work: searching, photographing, collecting evidence","Lab work: DNA, drugs, fibres, firearms, toxicology","Also used for disasters, missing persons, fraud and historic remains"],
+"Limits of forensic science":["Contamination or poor storage can ruin evidence","Class evidence (shared by many items) cannot point to one source","Experts can be biased; results need honest, careful interpretation"],
+"Locard's Exchange Principle":["Edmond Locard, French criminologist, early 1900s","Examples: fibres, hair, soil, fingerprints, DNA","No trace found may mean no contact, or that the scene was cleaned"],
+"Roberto Calvi Case":["Chairman of Banco Ambrosiano, nicknamed 'God's Banker'","Found hanged in June 1982 with bricks and cash in his clothes","Shows how scene interpretation can swing between suicide and murder"],
+"Buck Ruxton & Jigsaw murders":["Remains found in a ravine near Moffat, Scotland, in 1935","Fingerprints helped identify a victim; maggot age fixed the dumping date","A landmark for forensic pathology and entomology; Ruxton was hanged in 1936"],
+"Forensic labs":["Sections by specialty: biology/DNA, chemistry, firearms, digital","Quality: accreditation, validated methods, contamination controls","Every sample is logged from scene to court"],
+"Reconstruction & re-enactment":["Uses scene evidence, witness accounts and physical testing","Bloodstains, bullet paths and vehicle damage guide the work","Can support or rule out a suspect's version of events"],
+"The woodchipper murder case":["Helle Crafts, a flight attendant, vanished in November 1986","Hair, bone and tooth fragments and blood traces were recovered near a woodchipper","Richard Crafts was convicted in 1989: a rare murder conviction without a body"],
+"Introduction to Atomic Structure":["Protons (+) and neutrons sit in the nucleus; electrons (-) orbit it","Atomic number = protons; mass number = protons + neutrons","Electron arrangement decides bonding and how atoms absorb or emit light"],
+"Elemental Analysis":["Techniques include SEM-EDX, ICP-MS and X-ray fluorescence","Used on glass, paint, soil, gunshot residue and metals","Element ratios can link a sample to a source"],
+"Analysis of Microscopic Objects":["A comparison microscope shows two samples side by side","SEM gives magnified images plus element data","Compare colour, shape, layers and refractive index"],
+"Napoleon Case":["Died on St Helena in 1821; cause debated (stomach cancer vs arsenic)","Hair analysis found arsenic, but arsenic was common in everyday materials","Hair shows exposure, not proof of poisoning"],
+"JFK Assassination Case":["Neutron activation analysis compared trace elements in bullet lead","Results were used to link fragments to bullets","Later reviews challenged how reliable the method was"],
+"Introduction to Chromatography":["A mobile phase carries the sample through a stationary phase","Retention time or Rf value helps identify a compound","Types: paper, thin-layer (TLC), gas (GC), liquid (HPLC)"],
+"GC & HPLC":["GC suits volatile samples such as accelerants and many drugs","HPLC suits non-volatile samples such as dyes, explosives and some drugs","Both are often linked to a mass spectrometer"],
+"Infrared Spectroscopy":["FTIR is the common version","Peaks show bonds such as C=O or O-H","Good for polymers, fibres, paints and drugs"],
+"Mass Spectrometry":["Steps: ionise, separate by mass-to-charge, detect","The fragment pattern acts like a molecular fingerprint","Spectra are matched against reference libraries"],
+"Time of death":["No single method is exact; investigators combine several indicators","Estimates are ranges, not precise times","Accuracy falls as time since death increases"],
+"Recent Deaths":["Algor mortis: the body cools towards room temperature","Rigor mortis: stiffness sets in over hours, then passes","Livor mortis: blood settles and becomes fixed in the lowest areas"],
+"Decomposing bodies I":["Autolysis (self-digestion) is followed by bacterial putrefaction","Heat speeds decay; cold and dryness slow it","Burial, water and clothing change the rate"],
+"Decomposing bodies II (forensic entomology)":["Blowflies reach a body within minutes to hours","Species and larval size indicate the age of the infestation","Gives a minimum time since death"],
+"Analysis of Skeletal Remains I":["Pelvis and skull are the best indicators of sex","Age comes from bone growth, fusion and teeth","Height is estimated from long bone length"],
+"Analysis of Skeletal Remains II":["Look for fractures, cut marks and healed injuries","Dental records and X-rays can confirm identity","Facial reconstruction helps when identity is unknown"],
+"Ötzi Case":["Found in the Ötztal Alps in 1991, preserved in ice","Imaging found an arrowhead in his shoulder","Shows forensic methods applied to ancient remains"],
+"Blood":["Roughly half plasma and half cells","ABO and Rh groups can exclude a suspect but not identify one alone","White cells carry the nuclear DNA"],
+"Test for blood":["Presumptive tests: Kastle-Meyer, luminol, phenolphthalein","They can give false positives, e.g. with some plant material","Confirm with specific tests, then DNA"],
+"Precipitin Technology":["Antibodies bind human proteins and form a visible precipitate","Species identification helps rule out animal blood","Based on the antigen-antibody reaction"],
+"Blood Spatter Analysis":["Round drops fall straight; elongated drops show direction","Impact angle = arcsin(width / length)","Lines traced back meet at the area of origin"],
+"Lord Lucan Case":["Nanny Sandra Rivett was killed in November 1974","A bent lead pipe and bloodstains were found","Lucan was never found and was declared dead in 2016"]};
+const W=t=>"https://en.wikipedia.org/w/index.php?search="+encodeURIComponent(t),Y=t=>"https://www.youtube.com/results?search_query="+encodeURIComponent(t+" forensic science");
+let S={};try{S=JSON.parse(localStorage.getItem("f101")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("f101",JSON.stringify(S))}catch(e){}};
+const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let tab="lib",q="",typ=0,deck=[],fl=false,done=0,mod="all";
+const hit=a=>!q||a.join(" ").toLowerCase().includes(q);
+function prog(){let t=0,d=0;M.forEach((m,i)=>m[2].forEach((x,j)=>{t++;if(S[i+"-"+j])d++}));return[t,d]}
+function upd(){const[t,d]=prog();$("pt").textContent=d+" of "+t+" topics revised";$("pb").style.width=d/t*100+"%"}
+function lib(){const[t,d]=prog(),o=D[new Date().getDate()%D.length];
+let h=`<div class=tod><b>Term of the day: ${esc(o[0])}</b><br>${esc(o[1])}</div><div class=m>${M.length} modules, ${t} topics, ${D.length} glossary terms</div><div class=m id=pt></div><div class=bar><i id=pb></i></div><input type=text id=q placeholder="Search notes…" value="${esc(q)}"><button class=btn id=so style="width:100%;margin-bottom:10px">${S.only?"Showing saved topics (tap to show all)":"Show saved topics only"}</button>`;
+M.forEach((m,i)=>{const ts=m[2].map((x,j)=>[x,j]).filter(([x,j])=>hit(x)&&(!S.only||S["s"+i+"-"+j]));if(!ts.length)return;
+h+=`<details ${q?"open":""}><summary><span class=mn>${i+1}</span>${esc(m[0])}</summary>`+ts.map(([x,j])=>`<div class=t><input type=checkbox ${S[i+"-"+j]?"checked":""} data-k="${i}-${j}" aria-label="Revised"><div style="flex:1"><b>${esc(x[0])}</b><p>${esc(x[1])}</p>${P[x[0]]?"<ul>"+P[x[0]].map(p=>"<li>"+esc(p)+"</li>").join("")+"</ul>":""}<a href="${W(x[0])}" target=_blank rel=noopener>Read more</a><a href="${Y(x[0])}" target=_blank rel=noopener>Watch</a></div><button class="st${S["s"+i+"-"+j]?" on":""}" data-s="${i}-${j}">${S["s"+i+"-"+j]?"Saved":"Save"}</button></div>`).join("")+"</details>"});
+return h}
+function dict(){let h=`<input type=text id=q placeholder="Search terms…" value="${esc(q)}">`;
+D.filter(hit).sort((a,b)=>a[0].localeCompare(b[0])).forEach(d=>h+=`<div class=t><div><b>${esc(d[0])}</b><p>${esc(d[1])}</p></div></div>`);return h}
+function build(){const c=[];M.forEach((m,i)=>{if(mod=="all"||mod==i)m[2].forEach(x=>{if(x[1]!=N)c.push(x)})});
+if(mod=="all"||mod=="k")D.forEach(d=>c.push(["What is "+d[0]+"?",d[1]]));
+deck=c.sort(()=>Math.random()-.5);fl=false;done=0}
+function cards(){if(!deck.length&&!done)build();
+let h=`<select id=ms><option value=all>All modules + key terms</option>${M.map((m,i)=>`<option value=${i} ${mod==i?"selected":""}>Module ${i+1}: ${esc(m[0])}</option>`).join("")}<option value=k ${mod=="k"?"selected":""}>Key terms only</option></select>`;
+if(!deck.length)return h+`<div class=fc style="cursor:default">Deck complete. Well done.</div><button class="btn p" id=rs style="width:100%">Study again</button>`;
+const c=deck[0];
+return h+`<div class=m>${deck.length} cards left</div><div class=fc id=fc role=button tabindex=0>${fl?esc(c[1])+(P[c[0]]||[]).map(p=>"<br>• "+esc(p)).join(""):esc(c[0])}</div><div class=row><button class=btn id=ag>Review again</button><button class="btn p" id=gt>Got it</button></div><div class=m>Tap the card to flip it.</div>`}
+function render(){$("v").innerHTML={lib,dict,cards,quiz}[tab]();
+document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.t==tab));
+if(tab=="lib")upd();
+const e=$("q");if(typ&&e){e.focus();e.setSelectionRange(99,99)}typ=0}
+let qz=null,sc=0,qn=0;
+function nq(){const d=D[Math.random()*D.length|0],o=[d];while(o.length<4){const x=D[Math.random()*D.length|0];if(!o.includes(x))o.push(x)}qz={d,o:o.sort(()=>Math.random()-.5),p:null}}
+function quiz(){if(!qz)nq();let h=`<div class=m>Score ${sc} / ${qn}</div><div class=fc style="cursor:default;min-height:120px">Which term matches: ${esc(qz.d[1])}</div>`;
+qz.o.forEach((o,i)=>{const s=qz.p!==null?(o==qz.d?"ok":i==qz.p?"no":""):"";h+=`<button class="btn ${s}" data-o=${i} style="width:100%;margin-bottom:8px">${esc(o[0])}</button>`});
+if(qz.p!==null)h+=`<button class="btn p" id=nx style="width:100%">Next question</button>`;return h}
+document.addEventListener("click",e=>{const t=e.target;
+if(t.dataset.t){tab=t.dataset.t;q="";render()}
+else if(t.id=="fc"){fl=!fl;render()}
+else if(t.id=="gt"){deck.shift();fl=false;if(!deck.length)done=1;render()}
+else if(t.id=="ag"){deck.push(deck.shift());fl=false;render()}
+else if(t.id=="rs"){build();render()}
+else if(t.dataset.k){S[t.dataset.k]=t.checked;save();upd()}
+else if(t.dataset.s){const k="s"+t.dataset.s;S[k]=!S[k];save();t.textContent=S[k]?"Saved":"Save";t.classList.toggle("on",!!S[k])}
+else if(t.id=="so"){S.only=!S.only;save();render()}
+else if(t.id=="th"){S.th=document.documentElement.classList.toggle("dk")?"dk":"lt";save()}
+else if(t.dataset.o){if(qz.p===null){qz.p=+t.dataset.o;qn++;if(qz.o[qz.p]==qz.d)sc++;render()}}
+else if(t.id=="nx"){nq();render()}});
+document.addEventListener("input",e=>{if(e.target.id=="q"){q=e.target.value.toLowerCase();typ=1;render()}});
+document.addEventListener("change",e=>{if(e.target.id=="ms"){mod=e.target.value;build();render()}});
+if(S.th?S.th=="dk":matchMedia("(prefers-color-scheme:dark)").matches)document.documentElement.classList.add("dk");render();
+</script></body></html>
